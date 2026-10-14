@@ -201,13 +201,22 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .edge.to-home { background: linear-gradient(180deg, rgba(242,242,240,.2), #F2F2F0 50%, rgba(242,242,240,.2)); box-shadow: 0 0 18px 2px rgba(242, 242, 240, .35); }
 
 /* ══════════════ PAGE D'ACCUEIL ══════════════ */
+/* Curseur caméra : blanc par défaut, bleu glacé sur Cinéma, orange sur IA (avec le voyant d'enregistrement) */
 .home {
   position: absolute; inset: 0;
   display: flex; flex-direction: column;
   color: var(--h-fg);
   font-family: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   overflow: hidden;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg stroke='%230E0E10' stroke-width='1.6' stroke-linejoin='round' fill='%23F2F2F0'%3E%3Ccircle cx='9.5' cy='8' r='5.2'/%3E%3Ccircle cx='19.5' cy='8' r='5.2'/%3E%3Crect x='4' y='13.5' width='18.5' height='12' rx='2'/%3E%3Cpath d='M22.5 17 L30 13.5 V25.5 L22.5 22 Z'/%3E%3C/g%3E%3Ccircle cx='9.5' cy='8' r='1.6' fill='%230E0E10'/%3E%3Ccircle cx='19.5' cy='8' r='1.6' fill='%230E0E10'/%3E%3C/svg%3E") 16 16, auto;
 }
+.home.hot-cinema {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg stroke='%230E0E10' stroke-width='1.6' stroke-linejoin='round' fill='%23BFDBFE'%3E%3Ccircle cx='9.5' cy='8' r='5.2'/%3E%3Ccircle cx='19.5' cy='8' r='5.2'/%3E%3Crect x='4' y='13.5' width='18.5' height='12' rx='2'/%3E%3Cpath d='M22.5 17 L30 13.5 V25.5 L22.5 22 Z'/%3E%3C/g%3E%3Ccircle cx='9.5' cy='8' r='1.6' fill='%230E0E10'/%3E%3Ccircle cx='19.5' cy='8' r='1.6' fill='%230E0E10'/%3E%3Ccircle cx='8' cy='17.5' r='1.8' fill='%23E8111A'/%3E%3C/svg%3E") 16 16, pointer;
+}
+.home.hot-ia {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg stroke='%230E0E10' stroke-width='1.6' stroke-linejoin='round' fill='%23FF6B00'%3E%3Ccircle cx='9.5' cy='8' r='5.2'/%3E%3Ccircle cx='19.5' cy='8' r='5.2'/%3E%3Crect x='4' y='13.5' width='18.5' height='12' rx='2'/%3E%3Cpath d='M22.5 17 L30 13.5 V25.5 L22.5 22 Z'/%3E%3C/g%3E%3Ccircle cx='9.5' cy='8' r='1.6' fill='%230E0E10'/%3E%3Ccircle cx='19.5' cy='8' r='1.6' fill='%230E0E10'/%3E%3Ccircle cx='8' cy='17.5' r='1.8' fill='%23E8111A'/%3E%3C/svg%3E") 16 16, pointer;
+}
+.home .word, .home .h-lang button { cursor: inherit; }
 .home .light {
   position: absolute; left: 0; top: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px;
   border-radius: 50%; pointer-events: none; z-index: 0;
@@ -243,7 +252,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   text-decoration: none; color: inherit;
   border-top: 1px solid var(--h-line);
   padding: 30px 0 12px;
-  cursor: pointer; -webkit-user-select: none; user-select: none;
+  -webkit-user-select: none; user-select: none;
 }
 .home .word:last-child { border-bottom: 1px solid var(--h-line); }
 .home .word:focus-visible { outline: none; }
@@ -434,7 +443,7 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
 (function () {
   var META = {
     home:   { title: 'Pierre-Yves Kerjean — Portfolio',         color: '#0E0E10', icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E0E10'/%3E%3Crect x='7' y='12' width='8' height='8' fill='%23EBF0FA'/%3E%3Ccircle cx='21' cy='16' r='4' fill='%23FF6B00'/%3E%3C/svg%3E" },
-    cinema: { title: 'Pierre-Yves Kerjean — Portfolio Cinéma',  color: '#060C1A', icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563EB'/%3E%3Crect x='7' y='12' width='8' height='8' fill='%23EBF0FA'/%3E%3Ccircle cx='21' cy='16' r='4' fill='%23FF6B00'/%3E%3C/svg%3E" },
+    cinema: { title: 'Pierre-Yves Kerjean — Portfolio Cinéma',  color: '#060C1A', icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23EBF0FA'/%3E%3Crect x='7' y='12' width='8' height='8' fill='%230E0E10'/%3E%3Ccircle cx='21' cy='16' r='4' fill='%23FF6B00'/%3E%3C/svg%3E" },
     ia:     { title: 'Pierre-Yves Kerjean — IA & Créativité',    color: '#FAFAFA', icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23E8111A'/%3E%3Cstop offset='.55' stop-color='%23FF6B00'/%3E%3Cstop offset='1' stop-color='%23FFB800'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='url(%23g)'/%3E%3Crect x='7' y='12' width='8' height='8' fill='%23FFFFFF'/%3E%3Ccircle cx='21' cy='16' r='4' fill='%230E0E10'/%3E%3C/svg%3E" }
   };
 
