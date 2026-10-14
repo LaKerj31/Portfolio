@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#060C1A">
 <title>Pierre-Yves Kerjean — Portfolio Cinéma</title>
 <meta name="description" content="Portfolio de Pierre-Yves Kerjean, étudiant en cinéma spécialisé en montage, étalonnage et direction de post-production.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23060C1A'/><g fill='%23EBF0FA'><rect x='8.0' y='2.45' width='3.1' height='12.5'/><path fill-rule='evenodd' d='M8.0 2.45 H12.40 A3.2 3.2 0 0 1 15.60 5.65 V6.65 A3.2 3.2 0 0 1 12.40 9.85 H8.0 Z M11.10 4.85 H12.20 A0.9 0.9 0 0 1 13.10 5.75 V6.55 A0.9 0.9 0 0 1 12.20 7.45 H11.10 Z'/><rect x='18.65' y='7.85' width='3.1' height='7.10'/></g><clipPath id='y'><rect x='16.40' y='2.45' width='7.6' height='12.5'/></clipPath><path clip-path='url(%23y)' fill='none' stroke='%23EBF0FA' stroke-linejoin='miter' stroke-miterlimit='10' stroke-width='2.9' d='M16.94 -0.55 L20.20 9.35 L23.46 -0.55'/><clipPath id='k'><rect x='8.0' y='17.55' width='16.0' height='12.0'/></clipPath><g clip-path='url(%23k)' fill='none' stroke='%23EBF0FA' stroke-linejoin='miter'><path d='M7.74 32.55 L16 20.65 L24.26 32.55' stroke-width='3.0'/><path d='M8.0 19.10 H24.0' stroke-width='3.1'/></g></svg>">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E0E10'/%3E%3Crect x='7' y='12' width='8' height='8' fill='%2360A5FA'/%3E%3Ccircle cx='21' cy='16' r='4' fill='%23FF6B00'/%3E%3C/svg%3E">
 <style>
 /* ── Polices embarquées (woff2 base64) ── */
 @font-face {
@@ -313,6 +313,8 @@ lucide-react/dist/esm/lucide-react.js:
   /* 6. Curseur perso du site IA : masqué quand la souris quitte la page */
   if (SITE === 'ia') {
     var root = document.documentElement;
+    root.classList.add('pyk-out');   // caché tant que la souris n'a pas bougé (sinon il traîne dans le coin)
+    root.addEventListener('mousemove', function () { root.classList.remove('pyk-out'); }, { once: true });
     root.addEventListener('mouseleave', function () { root.classList.add('pyk-out'); });
     root.addEventListener('mouseenter', function () { root.classList.remove('pyk-out'); });
     var st = document.createElement('style');
