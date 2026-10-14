@@ -261,10 +261,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   background: var(--h-bg); padding-right: 12px;
 }
 .home .mid {
-  position: absolute; left: 50%; top: -8px; transform: translateX(-50%);
-  font-size: 12px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--h-fg);
-  background: var(--h-bg); padding: 0 16px; white-space: nowrap; line-height: 1.3;
+  position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%);
+  font-size: clamp(14px, 1.6vw, 24px); font-weight: 500; letter-spacing: .3em; text-indent: .3em; text-transform: uppercase; color: var(--h-fg);
+  background: var(--h-bg); padding: 0 22px; white-space: nowrap; line-height: 1.3;
 }
+.home .word.cinema { padding-bottom: 34px; }
+.home .word.ia { padding-top: 54px; }
 .home .wrap { position: relative; display: inline-block; max-width: 100%; }
 .home .w, .home .w-fill {
   font-family: 'Unbounded', 'Arial Black', Impact, sans-serif;
@@ -295,14 +297,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .home .word.hot .meta .go i, .home .word:focus-visible .meta .go i { width: 90px; }
 
 .home .h-foot {
-  display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; color: var(--h-fg); font-weight: 500;
+  display: flex; justify-content: center; align-items: flex-end; text-align: center; color: var(--h-fg); font-weight: 500;
   padding: 0 40px 28px;
   padding-left: max(40px, env(safe-area-inset-left)); padding-right: max(40px, env(safe-area-inset-right));
   padding-bottom: max(28px, env(safe-area-inset-bottom));
   font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--h-mute); line-height: 1.8;
 }
-.home .tag { line-height: 1.8; }
-.home .h-foot .place { text-align: right; }
+.home .tag { font-size: 12px; letter-spacing: .22em; line-height: 1.8; }
 
 /* Entrée en scène */
 .home .h-top, .home .word, .home .h-foot { opacity: 0; transform: translateY(14px); }
@@ -322,10 +323,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .home .h-top { padding: 20px 22px 0; padding-left: max(22px, env(safe-area-inset-left)); padding-right: max(22px, env(safe-area-inset-right)); }
   .home .stack { padding: 0 22px; }
   .home .word { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 0 16px; }
+  .home .word.cinema { padding-bottom: 24px; }
+  .home .word.ia { padding-top: 36px; }
+  .home .mid { padding: 0 12px; letter-spacing: .22em; text-indent: .22em; }
   .home .w, .home .w-fill { font-size: 16.5vw; -webkit-text-stroke-width: 1px; }
   .home .meta { align-items: flex-start; white-space: normal; }
-  .home .h-foot { flex-direction: column; align-items: flex-start; gap: 14px; padding: 0 22px 24px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
-  .home .h-foot .place { text-align: left; }
+  .home .h-foot { padding: 0 22px 24px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  .home .tag { font-size: 11px; letter-spacing: .18em; }
 }
 @media (min-width: 761px) and (max-width: 1100px) {
   .home .w, .home .w-fill { font-size: clamp(56px, 11vw, 160px); }
@@ -391,7 +395,6 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
     </main>
     <footer class="h-foot">
       <p class="tag" data-i18n="tagline">Spécialisé en post-production &amp; IA générative</p>
-      <div class="place"><span data-i18n="year">Portfolio — 2026</span></div>
     </footer>
   </div>
  </div>
@@ -457,7 +460,6 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
       tagIa: 'Image · Vidéo · Musique générative',
       enter: 'Entrer',
       tagline: 'Spécialisé en post-production & IA générative',
-      year: 'Portfolio — 2026',
       switch: 'Choisir un univers', home: 'Retour à l\'accueil',
       now: { home: 'Accueil affiché', cinema: 'Univers Cinéma affiché', ia: 'Univers IA affiché' }
     },
@@ -469,7 +471,6 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
       tagIa: 'Generative image · Video · Music',
       enter: 'Enter',
       tagline: 'Specialised in post-production & generative AI',
-      year: 'Portfolio — 2026',
       switch: 'Choose a side', home: 'Back to home',
       now: { home: 'Home shown', cinema: 'Cinema side shown', ia: 'AI side shown' }
     }
