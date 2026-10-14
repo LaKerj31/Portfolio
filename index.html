@@ -272,8 +272,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .home .meta {
   display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
   font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--h-mute);
-  transition: color .4s; white-space: nowrap; flex: 0 0 auto;
+  transition: color .4s; white-space: nowrap; flex: 0 1 auto; min-width: 0; text-align: right;
 }
+.home .meta > span:first-child { white-space: normal; }
 .home .meta .go { display: flex; align-items: center; gap: 12px; }
 .home .meta .go i { display: block; width: 34px; height: 1px; background: currentColor; transition: width .6s cubic-bezier(.76, 0, .2, 1); }
 .home .word.hot .meta, .home .word:focus-visible .meta { color: var(--h-fg); }
@@ -315,6 +316,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .home .h-foot { flex-direction: column; align-items: flex-start; gap: 14px; padding: 0 22px 24px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
   .home .tag { font-size: 19px; }
   .home .h-foot .place { text-align: left; }
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .home .w, .home .w-fill { font-size: clamp(56px, 11vw, 160px); }
+  .home .meta { font-size: 10px; letter-spacing: .14em; max-width: 36%; }
 }
 @media (max-height: 560px) and (min-width: 761px) {
   .home .w, .home .w-fill { font-size: clamp(48px, 15vh, 120px); }
