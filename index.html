@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="fr" data-u="cinema">
+<html lang="fr" data-u="home">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#060C1A">
+<meta name="theme-color" content="#0E0E10">
 <title>Pierre-Yves Kerjean — Portfolio</title>
 <meta name="description" content="Portfolio de Pierre-Yves Kerjean : cinéma (montage, étalonnage, direction de post-production) et IA créative (image, vidéo, musique).">
-<link rel="icon" id="favicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23060C1A'/><g fill='%23EBF0FA'><rect x='8.0' y='2.45' width='3.1' height='12.5'/><path fill-rule='evenodd' d='M8.0 2.45 H12.40 A3.2 3.2 0 0 1 15.60 5.65 V6.65 A3.2 3.2 0 0 1 12.40 9.85 H8.0 Z M11.10 4.85 H12.20 A0.9 0.9 0 0 1 13.10 5.75 V6.55 A0.9 0.9 0 0 1 12.20 7.45 H11.10 Z'/><rect x='18.65' y='7.85' width='3.1' height='7.10'/></g><clipPath id='y'><rect x='16.40' y='2.45' width='7.6' height='12.5'/></clipPath><path clip-path='url(%23y)' fill='none' stroke='%23EBF0FA' stroke-linejoin='miter' stroke-miterlimit='10' stroke-width='2.9' d='M16.94 -0.55 L20.20 9.35 L23.46 -0.55'/><clipPath id='k'><rect x='8.0' y='17.55' width='16.0' height='12.0'/></clipPath><g clip-path='url(%23k)' fill='none' stroke='%23EBF0FA' stroke-linejoin='miter'><path d='M7.74 32.55 L16 20.65 L24.26 32.55' stroke-width='3.0'/><path d='M8.0 19.10 H24.0' stroke-width='3.1'/></g></svg>">
+<link rel="icon" id="favicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E0E10'/%3E%3Crect x='7' y='12' width='8' height='8' fill='%23EBF0FA'/%3E%3Ccircle cx='21' cy='16' r='4' fill='%23FF6B00'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,6 +14,15 @@
 @font-face { font-family: 'PYK Barlow'; font-weight: 700; font-style: normal; font-display: swap; src: url(assets/fonts/barlow-condensed-700-latin.woff2) format('woff2'); }
 @font-face { font-family: 'PYK Barlow'; font-weight: 800; font-style: normal; font-display: swap; src: url(assets/fonts/barlow-condensed-800-latin.woff2) format('woff2'); }
 @font-face { font-family: 'PYK Inter'; font-weight: 300 500; font-style: normal; font-display: swap; src: url(assets/fonts/inter-400-latin.woff2) format('woff2'); }
+/* Polices de la page d'accueil (auto-hébergées, licence OFL) */
+@font-face { font-family: 'Unbounded'; font-weight: 900; font-style: normal; font-display: swap; src: url(assets/fonts/unbounded-latin-900-normal.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Unbounded'; font-weight: 900; font-style: normal; font-display: swap; src: url(assets/fonts/unbounded-latin-ext-900-normal.woff2) format('woff2'); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Instrument Serif'; font-weight: 400; font-style: italic; font-display: swap; src: url(assets/fonts/instrument-serif-latin-400-italic.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Instrument Serif'; font-weight: 400; font-style: italic; font-display: swap; src: url(assets/fonts/instrument-serif-latin-ext-400-italic.woff2) format('woff2'); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'DM Mono'; font-weight: 400; font-style: normal; font-display: swap; src: url(assets/fonts/dm-mono-latin-400-normal.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'DM Mono'; font-weight: 400; font-style: normal; font-display: swap; src: url(assets/fonts/dm-mono-latin-ext-400-normal.woff2) format('woff2'); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'DM Mono'; font-weight: 500; font-style: normal; font-display: swap; src: url(assets/fonts/dm-mono-latin-500-normal.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'DM Mono'; font-weight: 500; font-style: normal; font-display: swap; src: url(assets/fonts/dm-mono-latin-ext-500-normal.woff2) format('woff2'); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 
 :root {
   --bar-h: 44px;
@@ -29,11 +38,16 @@
   --grad: linear-gradient(135deg, #E8111A 0%, #FF6B00 55%, #FFB800 100%);
   --wipe: 900ms;
   --ease: cubic-bezier(.76, 0, .2, 1);
+  --h-bg: #0E0E10;
+  --h-fg: #F2F2F0;
+  --h-mute: rgba(242, 242, 240, .45);
+  --h-line: rgba(242, 242, 240, .16);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; overflow: hidden; }
-body { background: var(--navy); -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
+body { background: var(--h-bg); -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
+html[data-u="cinema"] body { background: var(--navy); }
 html[data-u="ia"] body { background: var(--paper); }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 
@@ -51,6 +65,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .world.is-in, .world.is-in .world-in { will-change: transform; }
 .world.is-on { visibility: visible; z-index: 2; }
 .world.is-in { visibility: visible; z-index: 3; }
+.world[data-u="home"] { background: var(--h-bg); }
 .world[data-u="cinema"] { background: var(--navy); }
 .world[data-u="ia"] { background: var(--paper); }
 
@@ -69,7 +84,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   padding-left: max(40px, env(safe-area-inset-left));
   padding-right: max(40px, env(safe-area-inset-right));
 }
-.bar-id { justify-self: start; text-decoration: none; white-space: nowrap; }
+.bar-id { justify-self: start; text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 10px; }
+.bar-home { display: none; width: 22px; height: 22px; flex: 0 0 22px; }
+.world[data-u="cinema"] .bar-home rect { fill: var(--ice); } .world[data-u="cinema"] .bar-home circle { fill: var(--orange); }
+.world[data-u="ia"] .bar-home rect { fill: var(--navy); } .world[data-u="ia"] .bar-home circle { fill: var(--orange); }
 .bar-tag { justify-self: end; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
 
 .switch { position: relative; display: flex; align-items: center; padding: 3px; gap: 2px; }
@@ -180,6 +198,133 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .edge.to-ia { background: linear-gradient(180deg, #E8111A, #FF6B00 55%, #FFB800); box-shadow: 0 0 18px 2px rgba(255, 107, 0, .55); }
 .edge.to-cinema { background: linear-gradient(180deg, #BFDBFE, #EBF0FA 50%, #60A5FA); box-shadow: 0 0 18px 2px rgba(96, 165, 250, .55); }
+.edge.to-home { background: linear-gradient(180deg, rgba(242,242,240,.2), #F2F2F0 50%, rgba(242,242,240,.2)); box-shadow: 0 0 18px 2px rgba(242, 242, 240, .35); }
+
+/* ══════════════ PAGE D'ACCUEIL ══════════════ */
+.home {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  color: var(--h-fg);
+  font-family: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow: hidden;
+}
+.home .light {
+  position: absolute; left: 0; top: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px;
+  border-radius: 50%; pointer-events: none; z-index: 0;
+  background: radial-gradient(circle, var(--light, rgba(242,242,240,.10)), transparent 62%);
+  filter: blur(14px); opacity: 0;
+  transition: opacity .8s ease, background .6s ease;
+  will-change: transform;
+}
+.home.lit .light { opacity: 1; }
+.home.hot-cinema .light { --light: rgba(96, 165, 250, .22); }
+.home.hot-ia .light { --light: rgba(255, 107, 0, .22); }
+
+.home .h-top, .home .h-foot, .home .stack { position: relative; z-index: 1; }
+.home .h-top {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 26px 40px 0;
+  padding-left: max(40px, env(safe-area-inset-left)); padding-right: max(40px, env(safe-area-inset-right));
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--h-mute);
+}
+.home .h-top b { color: var(--h-fg); font-weight: 500; }
+.home .h-lang { display: flex; gap: 2px; }
+.home .h-lang button {
+  font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--h-mute);
+  padding: 4px 7px; border-radius: 3px; transition: color .2s, background-color .2s;
+}
+.home .h-lang button[aria-pressed="true"] { color: var(--h-fg); }
+.home .h-lang button:hover { background: rgba(242,242,240,.08); color: var(--h-fg); }
+.home .h-lang button:focus-visible { outline: 1px solid var(--h-fg); outline-offset: 2px; }
+
+.home .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 40px; min-height: 0; }
+.home .word {
+  position: relative; display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
+  text-decoration: none; color: inherit;
+  border-top: 1px solid var(--h-line);
+  padding: 30px 0 12px;
+  cursor: pointer; -webkit-user-select: none; user-select: none;
+}
+.home .word:last-child { border-bottom: 1px solid var(--h-line); }
+.home .word:focus-visible { outline: none; }
+.home .word:focus-visible .meta { color: var(--h-fg); }
+.home .word .idx {
+  position: absolute; left: 0; top: -7px;
+  font-size: 10px; letter-spacing: .3em; color: var(--h-mute);
+  background: var(--h-bg); padding-right: 12px;
+}
+.home .wrap { position: relative; display: inline-block; max-width: 100%; }
+.home .w, .home .w-fill {
+  font-family: 'Unbounded', 'Arial Black', Impact, sans-serif;
+  font-weight: 900; font-size: clamp(64px, 13.5vw, 214px);
+  line-height: .9; letter-spacing: -.04em; text-transform: uppercase;
+  display: block; white-space: nowrap;
+}
+.home .w { color: transparent; -webkit-text-stroke: 1.5px rgba(242, 242, 240, .55); }
+.home .w-fill {
+  position: absolute; inset: 0; pointer-events: none;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .7s cubic-bezier(.76, 0, .2, 1);
+}
+.home .word.cinema .w-fill { color: var(--ice); }
+.home .word.ia .w-fill { color: transparent; background: var(--grad); -webkit-background-clip: text; background-clip: text; }
+.home .word.hot .w-fill, .home .word:focus-visible .w-fill { clip-path: inset(0 0 0 0); }
+.home .meta {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--h-mute);
+  transition: color .4s; white-space: nowrap; flex: 0 0 auto;
+}
+.home .meta .go { display: flex; align-items: center; gap: 12px; }
+.home .meta .go i { display: block; width: 34px; height: 1px; background: currentColor; transition: width .6s cubic-bezier(.76, 0, .2, 1); }
+.home .word.hot .meta, .home .word:focus-visible .meta { color: var(--h-fg); }
+.home .word.hot .meta .go i, .home .word:focus-visible .meta .go i { width: 90px; }
+
+.home .h-foot {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 32px;
+  padding: 0 40px 28px;
+  padding-left: max(40px, env(safe-area-inset-left)); padding-right: max(40px, env(safe-area-inset-right));
+  padding-bottom: max(28px, env(safe-area-inset-bottom));
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--h-mute); line-height: 1.8;
+}
+.home .tag {
+  font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px;
+  letter-spacing: 0; text-transform: none; color: var(--h-fg); max-width: 44ch; line-height: 1.25;
+}
+.home .h-foot .place { text-align: right; }
+
+/* Entrée en scène */
+.home .h-top, .home .word, .home .h-foot { opacity: 0; transform: translateY(14px); }
+.world.is-on .home .h-top, .world.is-in .home .h-top { animation: hin .9s cubic-bezier(.16, 1, .3, 1) .05s both; }
+.world.is-on .home .word.cinema, .world.is-in .home .word.cinema { animation: hin 1s cubic-bezier(.16, 1, .3, 1) .15s both; }
+.world.is-on .home .word.ia, .world.is-in .home .word.ia { animation: hin 1s cubic-bezier(.16, 1, .3, 1) .28s both; }
+.world.is-on .home .h-foot, .world.is-in .home .h-foot { animation: hin .9s cubic-bezier(.16, 1, .3, 1) .45s both; }
+@keyframes hin { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* Tactile : pas de survol, les lettres restent au trait mais plus affirmées */
+@media (hover: none) {
+  .home .w { -webkit-text-stroke-width: 1.2px; -webkit-text-stroke-color: rgba(242, 242, 240, .7); }
+  .home .light { display: none; }
+}
+
+@media (max-width: 760px) {
+  .home .h-top { padding: 20px 22px 0; padding-left: max(22px, env(safe-area-inset-left)); padding-right: max(22px, env(safe-area-inset-right)); }
+  .home .stack { padding: 0 22px; }
+  .home .word { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 0 16px; }
+  .home .w, .home .w-fill { font-size: 16.5vw; -webkit-text-stroke-width: 1px; }
+  .home .meta { align-items: flex-start; white-space: normal; }
+  .home .h-foot { flex-direction: column; align-items: flex-start; gap: 14px; padding: 0 22px 24px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  .home .tag { font-size: 19px; }
+  .home .h-foot .place { text-align: left; }
+}
+@media (max-height: 560px) and (min-width: 761px) {
+  .home .w, .home .w-fill { font-size: clamp(48px, 15vh, 120px); }
+  .home .tag { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home .h-top, .home .word, .home .h-foot { animation: none !important; opacity: 1; transform: none; }
+  .home .w-fill, .home .meta .go i { transition-duration: .01s; }
+  .home .light { display: none; }
+}
 
 /* ── Petits écrans ── */
 @media (max-width: 900px) {
@@ -188,8 +333,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .bar { grid-template-columns: 1fr auto; }
 }
 @media (max-width: 560px) {
-  .bar { grid-template-columns: 1fr; justify-items: center; padding: 0 12px; }
-  .bar-id { display: none; }
+  .bar { grid-template-columns: 1fr auto 1fr; padding: 0 14px; }
+  .bar-id span { display: none; }
+  .bar-home { display: block; }
   .switch button { height: 30px; padding: 0 16px; }
 }
 
@@ -198,15 +344,49 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif; color: #EBF0FA; }
+noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif; color: #F2F2F0; }
+.bar-id { cursor: pointer; }
 </style>
 </head>
 <body>
 
+<!-- ══════════════ ACCUEIL ══════════════
+     Les textes (FR et EN) se modifient dans le bloc TXT.home du script, plus bas. -->
+<section class="world" id="world-home" data-u="home" aria-label="Accueil">
+ <div class="world-in">
+  <div class="home" id="home">
+    <div class="light" aria-hidden="true"></div>
+    <header class="h-top">
+      <div><b data-i18n="name">Pierre-Yves Kerjean</b></div>
+      <div class="h-lang" role="group" aria-label="Langue">
+        <button type="button" data-lang="fr" aria-pressed="true" lang="fr">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+    </header>
+    <main class="stack">
+      <a class="word cinema" href="#cinema" data-to="cinema">
+        <span class="idx" aria-hidden="true">01</span>
+        <span class="wrap"><span class="w" data-i18n="cinemaWord">Cinéma</span><span class="w-fill" aria-hidden="true" data-i18n="cinemaWord">Cinéma</span></span>
+        <span class="meta"><span data-i18n="tagCinema">Montage · Étalonnage · Post-production</span><span class="go"><span data-i18n="enter">Entrer</span> <i></i></span></span>
+      </a>
+      <a class="word ia" href="#ia" data-to="ia">
+        <span class="idx" aria-hidden="true">02</span>
+        <span class="wrap"><span class="w" data-i18n="iaWord">IA</span><span class="w-fill" aria-hidden="true" data-i18n="iaWord">IA</span></span>
+        <span class="meta"><span data-i18n="tagIa">Image · Vidéo · Musique générative</span><span class="go"><span data-i18n="enter">Entrer</span> <i></i></span></span>
+      </a>
+    </main>
+    <footer class="h-foot">
+      <p class="tag" data-i18n="tagline">Étudiant en post-production à CinéCréatis Nantes, entre la salle de montage et les outils génératifs.</p>
+      <div class="place"><span data-i18n="place">Nantes · Paris</span><br><span data-i18n="year">Portfolio — 2026</span></div>
+    </footer>
+  </div>
+ </div>
+</section>
+
 <section class="world" id="world-cinema" data-u="cinema" aria-label="Portfolio Cinéma">
  <div class="world-in">
   <header class="bar">
-    <a class="bar-id" href="#cinema" data-i18n="name">Pierre-Yves Kerjean</a>
+    <a class="bar-id" href="#home" data-i18n-title="home"><svg class="bar-home" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="8" height="8"/><circle cx="17" cy="12" r="4"/></svg><span data-i18n="name">Pierre-Yves Kerjean</span></a>
     <div class="switch" role="group" data-i18n-aria="switch" aria-label="Choisir un univers">
       <button type="button" data-to="cinema" aria-pressed="true"><span class="mk mk-cinema" aria-hidden="true"></span><span data-i18n="cinema">Cinéma</span></button>
       <button type="button" data-to="ia" aria-pressed="false"><span class="mk mk-ia" aria-hidden="true"></span><span data-i18n="ia">IA</span></button>
@@ -223,7 +403,7 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
 <section class="world" id="world-ia" data-u="ia" aria-label="Portfolio IA">
  <div class="world-in">
   <header class="bar">
-    <a class="bar-id" href="#ia" data-i18n="name">Pierre-Yves Kerjean</a>
+    <a class="bar-id" href="#home" data-i18n-title="home"><svg class="bar-home" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="8" height="8"/><circle cx="17" cy="12" r="4"/></svg><span data-i18n="name">Pierre-Yves Kerjean</span></a>
     <div class="switch" role="group" data-i18n-aria="switch" aria-label="Choisir un univers">
       <button type="button" data-to="cinema" aria-pressed="false"><span class="mk mk-cinema" aria-hidden="true"></span><span data-i18n="cinema">Cinéma</span></button>
       <button type="button" data-to="ia" aria-pressed="true"><span class="mk mk-ia" aria-hidden="true"></span><span data-i18n="ia">IA</span></button>
@@ -248,21 +428,46 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
 <script>
 (function () {
   var META = {
-    cinema: { title: 'Pierre-Yves Kerjean — Portfolio Cinéma', color: '#060C1A', icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23060C1A'/><g fill='%23EBF0FA'><rect x='8.0' y='2.45' width='3.1' height='12.5'/><path fill-rule='evenodd' d='M8.0 2.45 H12.40 A3.2 3.2 0 0 1 15.60 5.65 V6.65 A3.2 3.2 0 0 1 12.40 9.85 H8.0 Z M11.10 4.85 H12.20 A0.9 0.9 0 0 1 13.10 5.75 V6.55 A0.9 0.9 0 0 1 12.20 7.45 H11.10 Z'/><rect x='18.65' y='7.85' width='3.1' height='7.10'/></g><clipPath id='y'><rect x='16.40' y='2.45' width='7.6' height='12.5'/></clipPath><path clip-path='url(%23y)' fill='none' stroke='%23EBF0FA' stroke-linejoin='miter' stroke-miterlimit='10' stroke-width='2.9' d='M16.94 -0.55 L20.20 9.35 L23.46 -0.55'/><clipPath id='k'><rect x='8.0' y='17.55' width='16.0' height='12.0'/></clipPath><g clip-path='url(%23k)' fill='none' stroke='%23EBF0FA' stroke-linejoin='miter'><path d='M7.74 32.55 L16 20.65 L24.26 32.55' stroke-width='3.0'/><path d='M8.0 19.10 H24.0' stroke-width='3.1'/></g></svg>" },
-    ia:     { title: 'Pierre-Yves Kerjean — IA & Créativité',   color: '#FAFAFA', icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23FF6B00'/%3E%3Ctext x='32' y='33' font-family='Arial,Helvetica,sans-serif' font-size='28' font-weight='700' fill='%23fff' text-anchor='middle' dominant-baseline='central' letter-spacing='-1'%3EPY%3C/text%3E%3C/svg%3E" }
-  };
-  var TXT = {
-    fr: { name: 'Pierre-Yves Kerjean', cinema: 'Cinéma', ia: 'IA', switch: 'Choisir un univers',
-          tagCinema: 'Montage · Étalonnage · Post-production', tagIa: 'Image · Vidéo · Musique générative',
-          now: { cinema: 'Univers Cinéma affiché', ia: 'Univers IA affiché' } },
-    en: { name: 'Pierre-Yves Kerjean', cinema: 'Cinema', ia: 'AI', switch: 'Choose a side',
-          tagCinema: 'Editing · Color grading · Post-production', tagIa: 'Generative image · Video · Music',
-          now: { cinema: 'Cinema side shown', ia: 'AI side shown' } }
+    home:   { title: 'Pierre-Yves Kerjean — Portfolio',         color: '#0E0E10', icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E0E10'/%3E%3Crect x='7' y='12' width='8' height='8' fill='%23EBF0FA'/%3E%3Ccircle cx='21' cy='16' r='4' fill='%23FF6B00'/%3E%3C/svg%3E" },
+    cinema: { title: 'Pierre-Yves Kerjean — Portfolio Cinéma',  color: '#060C1A', icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23060C1A'/><g fill='%23EBF0FA'><rect x='8.0' y='2.45' width='3.1' height='12.5'/><path fill-rule='evenodd' d='M8.0 2.45 H12.40 A3.2 3.2 0 0 1 15.60 5.65 V6.65 A3.2 3.2 0 0 1 12.40 9.85 H8.0 Z M11.10 4.85 H12.20 A0.9 0.9 0 0 1 13.10 5.75 V6.55 A0.9 0.9 0 0 1 12.20 7.45 H11.10 Z'/><rect x='18.65' y='7.85' width='3.1' height='7.10'/></g><clipPath id='y'><rect x='16.40' y='2.45' width='7.6' height='12.5'/></clipPath><path clip-path='url(%23y)' fill='none' stroke='%23EBF0FA' stroke-linejoin='miter' stroke-miterlimit='10' stroke-width='2.9' d='M16.94 -0.55 L20.20 9.35 L23.46 -0.55'/><clipPath id='k'><rect x='8.0' y='17.55' width='16.0' height='12.0'/></clipPath><g clip-path='url(%23k)' fill='none' stroke='%23EBF0FA' stroke-linejoin='miter'><path d='M7.74 32.55 L16 20.65 L24.26 32.55' stroke-width='3.0'/><path d='M8.0 19.10 H24.0' stroke-width='3.1'/></g></svg>" },
+    ia:     { title: 'Pierre-Yves Kerjean — IA & Créativité',    color: '#FAFAFA', icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23FF6B00'/%3E%3Ctext x='32' y='33' font-family='Arial,Helvetica,sans-serif' font-size='28' font-weight='700' fill='%23fff' text-anchor='middle' dominant-baseline='central' letter-spacing='-1'%3EPY%3C/text%3E%3C/svg%3E" }
   };
 
+  /* ══ TEXTES — c'est ici que se modifient les textes de l'accueil et de la barre ══ */
+  var TXT = {
+    fr: {
+      name: 'Pierre-Yves Kerjean',
+      cinema: 'Cinéma', ia: 'IA',                       // boutons de la barre
+      cinemaWord: 'Cinéma', iaWord: 'IA',               // grands mots de l'accueil
+      tagCinema: 'Montage · Étalonnage · Post-production',
+      tagIa: 'Image · Vidéo · Musique générative',
+      enter: 'Entrer',
+      tagline: 'Étudiant en post-production à CinéCréatis Nantes, entre la salle de montage et les outils génératifs.',
+      place: 'Nantes · Paris',
+      year: 'Portfolio — 2026',
+      switch: 'Choisir un univers', home: 'Retour à l\'accueil',
+      now: { home: 'Accueil affiché', cinema: 'Univers Cinéma affiché', ia: 'Univers IA affiché' }
+    },
+    en: {
+      name: 'Pierre-Yves Kerjean',
+      cinema: 'Cinema', ia: 'AI',
+      cinemaWord: 'Cinema', iaWord: 'AI',
+      tagCinema: 'Editing · Color grading · Post-production',
+      tagIa: 'Generative image · Video · Music',
+      enter: 'Enter',
+      tagline: 'Post-production student at CinéCréatis Nantes, between the edit suite and generative tools.',
+      place: 'Nantes · Paris',
+      year: 'Portfolio — 2026',
+      switch: 'Choose a side', home: 'Back to home',
+      now: { home: 'Home shown', cinema: 'Cinema side shown', ia: 'AI side shown' }
+    }
+  };
+
+  var ORDER = { cinema: 0, home: 1, ia: 2 };   // position des univers, pour le sens du volet
   var root = document.documentElement;
-  var worlds = { cinema: document.getElementById('world-cinema'), ia: document.getElementById('world-ia') };
+  var worlds = { home: document.getElementById('world-home'), cinema: document.getElementById('world-cinema'), ia: document.getElementById('world-ia') };
   var frames = { cinema: worlds.cinema.querySelector('iframe'), ia: worlds.ia.querySelector('iframe') };
+  var home = document.getElementById('home');
   var edge = document.querySelector('.edge');
   var announce = document.getElementById('announce');
   var favicon = document.getElementById('favicon');
@@ -271,17 +476,18 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
 
   var state = { u: null, lang: 'fr' };
 
-  /* ── Adresse : #cinema, #ia, #cinema/project/... ── */
+  /* ── Adresse : (vide) = accueil, #cinema, #ia, #cinema/project/... ── */
   function parseHash() {
     var h = (location.hash || '').replace(/^#\/?/, '');
     if (/^ia\b/i.test(h)) return { u: 'ia', route: '' };
     var m = h.match(/^cinema(\/.*)?$/i);
-    return { u: 'cinema', route: m && m[1] ? m[1] : '' };
+    if (m) return { u: 'cinema', route: m[1] || '' };
+    return { u: 'home', route: '' };
   }
 
   function load(u, route) {
     var f = frames[u];
-    if (f.getAttribute('src')) return;
+    if (!f || f.getAttribute('src')) return;
     var src = f.getAttribute('data-src');
     if (state.lang !== 'fr') src += '?lang=' + state.lang;
     if (u === 'cinema' && route) src += '#' + route;
@@ -289,10 +495,9 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
   }
 
   function ready(u) { worlds[u].classList.add('is-ready'); }
+  ready('home');
   frames.cinema.addEventListener('load', function () { ready('cinema'); });
   frames.ia.addEventListener('load', function () { ready('ia'); });
-
-  function other(u) { return u === 'cinema' ? 'ia' : 'cinema'; }
 
   function applyMeta(u) {
     root.setAttribute('data-u', u);
@@ -308,8 +513,9 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
   }
 
   function tell(u, msg) {
-    try { frames[u].contentWindow && frames[u].contentWindow.postMessage(Object.assign({ pyk: 1 }, msg), '*'); } catch (e) {}
+    try { frames[u] && frames[u].contentWindow && frames[u].contentWindow.postMessage(Object.assign({ pyk: 1 }, msg), '*'); } catch (e) {}
   }
+  function tellAll(msg) { tell('cinema', msg); tell('ia', msg); }
 
   var pending = null;
   function settle() {
@@ -321,7 +527,7 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
 
   function switchTo(u, opts) {
     opts = opts || {};
-    if (u !== 'cinema' && u !== 'ia') return;
+    if (!(u in worlds)) return;
     if (u === state.u) return;
     settle();
 
@@ -331,7 +537,8 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
     load(to);
 
     if (opts.push) {
-      try { history.pushState({ u: to }, '', '#' + to); } catch (e) { location.hash = to; }
+      var h = to === 'home' ? (location.pathname + location.search) : '#' + to;
+      try { history.pushState({ u: to }, '', h); } catch (e) { location.hash = to === 'home' ? '' : to; }
     }
 
     applyMeta(to);
@@ -340,11 +547,12 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
 
     if (!from) {                       // premier affichage
       worlds[to].classList.add('is-on');
-      setInert(other(to), true);
+      Object.keys(worlds).forEach(function (k) { if (k !== to) setInert(k, true); });
       return;
     }
 
-    tell(from, { type: 'hide' });
+    if (frames[from]) tell(from, { type: 'hide' });
+    if (to === 'home') home.classList.remove('hot-cinema', 'hot-ia');
     var incoming = worlds[to], outgoing = worlds[from];
     incoming.classList.add('is-in');
 
@@ -364,17 +572,16 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
       return;
     }
 
-    // Volet : l'IA arrive par la droite, le Cinéma par la gauche.
-    // Le cadre glisse et son contenu glisse en sens inverse : le contenu reste fixe,
-    // seule la fenêtre s'ouvre (tout en transform, donc fluide et synchronisé avec le liseré).
+    // Volet : l'univers entrant arrive du côté où il se trouve (Cinéma à gauche, Accueil au centre, IA à droite).
+    // Le cadre glisse et son contenu glisse en sens inverse : le contenu reste fixe, seule la fenêtre s'ouvre.
     var W = window.innerWidth;
-    var toIa = to === 'ia';
-    var sx = toIa ? W : -W;
+    var fromRight = ORDER[to] > ORDER[from];
+    var sx = fromRight ? W : -W;
     var timing = { duration: 900, easing: 'cubic-bezier(.76,0,.2,1)', fill: 'both' };
     var inner = incoming.querySelector('.world-in');
 
-    edge.className = 'edge ' + (toIa ? 'to-ia' : 'to-cinema');
-    var eFrom = toIa ? W : 0, eTo = toIa ? 0 : W;
+    edge.className = 'edge to-' + to;
+    var eFrom = fromRight ? W : 0, eTo = fromRight ? 0 : W;
     var a1 = incoming.animate([{ transform: 'translateX(' + sx + 'px)' }, { transform: 'translateX(0)' }], timing);
     var a3 = inner.animate([{ transform: 'translateX(' + (-sx) + 'px)' }, { transform: 'translateX(0)' }], timing);
     var a2 = edge.animate([
@@ -398,9 +605,55 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
     document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
       el.setAttribute('aria-label', t[el.getAttribute('data-i18n-aria')]);
     });
+    document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+      el.setAttribute('title', t[el.getAttribute('data-i18n-title')]);
+    });
+    document.querySelectorAll('.h-lang button').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.h-lang button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var l = b.getAttribute('data-lang');
+      if (l === state.lang) return;
+      applyLang(l);
+      tellAll({ type: 'lang', lang: l });
+    });
+  });
+
+  /* ── Accueil : les deux grands mots ── */
+  document.querySelectorAll('.home .word').forEach(function (a) {
+    var to = a.getAttribute('data-to');
+    a.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;   // ouvrir dans un nouvel onglet reste possible
+      e.preventDefault();
+      a.classList.add('hot');
+      switchTo(to, { push: true });
+      setTimeout(function () { a.classList.remove('hot'); }, 1200);
+    });
+    a.addEventListener('mouseenter', function () { a.classList.add('hot'); home.classList.add('hot-' + to); load(to); });
+    a.addEventListener('mouseleave', function () { a.classList.remove('hot'); home.classList.remove('hot-' + to); });
+    ['focus', 'touchstart'].forEach(function (ev) { a.addEventListener(ev, function () { load(to); }, { passive: true }); });
+  });
+
+  // Halo qui suit la souris (desktop uniquement)
+  if (!reduce && window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+    var light = home.querySelector('.light');
+    var mx = 0, my = 0, lx = 0, ly = 0, raf = null, first = true;
+    function tick() {
+      lx += (mx - lx) * .1; ly += (my - ly) * .1;
+      light.style.transform = 'translate(' + lx.toFixed(1) + 'px,' + ly.toFixed(1) + 'px)';
+      if (Math.abs(mx - lx) > .5 || Math.abs(my - ly) > .5) raf = requestAnimationFrame(tick); else raf = null;
+    }
+    home.addEventListener('mousemove', function (e) {
+      mx = e.clientX; my = e.clientY;
+      if (first) { lx = mx; ly = my; first = false; home.classList.add('lit'); }
+      if (!raf) raf = requestAnimationFrame(tick);
+    });
+    home.addEventListener('mouseleave', function () { home.classList.remove('lit'); first = true; });
   }
 
-  /* ── Boutons ── */
+  /* ── Barre des univers ── */
   document.querySelectorAll('.switch button').forEach(function (b) {
     b.addEventListener('click', function () {
       var to = b.getAttribute('data-to');
@@ -408,20 +661,16 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
       b.classList.add('is-going');
       setTimeout(function () { b.classList.remove('is-going'); }, 220);
       switchTo(to, { push: true });
-      // Le focus suit dans la barre du nouvel univers (navigation clavier)
       var next = worlds[to].querySelector('.switch [data-to="' + to + '"]');
       if (next) { try { next.focus({ preventScroll: true }); } catch (e) {} }
     });
-    // Préchargement dès l'intention
     ['pointerenter', 'focus', 'touchstart'].forEach(function (ev) {
       b.addEventListener(ev, function () { load(b.getAttribute('data-to')); }, { passive: true });
     });
   });
+  // Le nom dans la barre ramène à l'accueil
   document.querySelectorAll('.bar-id').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      e.preventDefault();
-      tell(a.closest('.world').getAttribute('data-u'), { type: 'top' });
-    });
+    a.addEventListener('click', function (e) { e.preventDefault(); switchTo('home', { push: true }); });
   });
 
   /* ── Messages des deux portfolios ── */
@@ -438,7 +687,7 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
     if (d.type === 'switch' && src === state.u) switchTo(d.to, { push: true });
     if (d.type === 'lang' && src === state.u && d.lang !== state.lang) {
       applyLang(d.lang);
-      tell(other(src), { type: 'lang', lang: d.lang });
+      tell(src === 'cinema' ? 'ia' : 'cinema', { type: 'lang', lang: d.lang });
     }
     if (d.type === 'route' && src === 'cinema' && state.u === 'cinema') {
       var r = (d.hash || '').replace(/^#/, '');
@@ -455,12 +704,11 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
   load(start.u, start.route);
   switchTo(start.u);
 
-  // L'autre univers se charge en arrière-plan une fois le premier prêt
-  var preloaded = false;
-  function preloadOther() { if (preloaded) return; preloaded = true; load(other(start.u)); }
-  frames[start.u].addEventListener('load', function () { setTimeout(preloadOther, 1200); });
-  setTimeout(preloadOther, 6000);
-  setTimeout(function () { ready(start.u); }, 10000);
+  // Les autres univers se chargent en arrière-plan
+  function preload() { load('cinema'); load('ia'); }
+  if (frames[start.u]) frames[start.u].addEventListener('load', function () { setTimeout(preload, 1200); });
+  setTimeout(preload, start.u === 'home' ? 2500 : 6000);
+  if (frames[start.u]) setTimeout(function () { ready(start.u); }, 10000);
 })();
 </script>
 </body>
