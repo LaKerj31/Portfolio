@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="fr" data-u="cinema">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#060C1A">
+<title>Pierre-Yves Kerjean — Portfolio</title>
+<meta name="description" content="Portfolio de Pierre-Yves Kerjean : cinéma (montage, étalonnage, direction de post-production) et IA créative (image, vidéo, musique).">
+<link rel="icon" id="favicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23060C1A'/><g fill='%23EBF0FA'><rect x='8.0' y='2.45' width='3.1' height='12.5'/><path fill-rule='evenodd' d='M8.0 2.45 H12.40 A3.2 3.2 0 0 1 15.60 5.65 V6.65 A3.2 3.2 0 0 1 12.40 9.85 H8.0 Z M11.10 4.85 H12.20 A0.9 0.9 0 0 1 13.10 5.75 V6.55 A0.9 0.9 0 0 1 12.20 7.45 H11.10 Z'/><rect x='18.65' y='7.85' width='3.1' height='7.10'/></g><clipPath id='y'><rect x='16.40' y='2.45' width='7.6' height='12.5'/></clipPath><path clip-path='url(%23y)' fill='none' stroke='%23EBF0FA' stroke-linejoin='miter' stroke-miterlimit='10' stroke-width='2.9' d='M16.94 -0.55 L20.20 9.35 L23.46 -0.55'/><clipPath id='k'><rect x='8.0' y='17.55' width='16.0' height='12.0'/></clipPath><g clip-path='url(%23k)' fill='none' stroke='%23EBF0FA' stroke-linejoin='miter'><path d='M7.74 32.55 L16 20.65 L24.26 32.55' stroke-width='3.0'/><path d='M8.0 19.10 H24.0' stroke-width='3.1'/></g></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: 'PYK Barlow'; font-weight: 700; font-style: normal; font-display: swap; src: url(assets/fonts/barlow-condensed-700-latin.woff2) format('woff2'); }
+@font-face { font-family: 'PYK Barlow'; font-weight: 800; font-style: normal; font-display: swap; src: url(assets/fonts/barlow-condensed-800-latin.woff2) format('woff2'); }
+@font-face { font-family: 'PYK Inter'; font-weight: 300 500; font-style: normal; font-display: swap; src: url(assets/fonts/inter-400-latin.woff2) format('woff2'); }
+
+:root {
+  --bar-h: 44px;
+  --navy: #060C1A;
+  --navy-2: #0A1428;
+  --ice: #EBF0FA;
+  --blue: #60A5FA;
+  --paper: #FAFAFA;
+  --ink: #111112;
+  --red: #E8111A;
+  --orange: #FF6B00;
+  --yellow: #FFB800;
+  --grad: linear-gradient(135deg, #E8111A 0%, #FF6B00 55%, #FFB800 100%);
+  --wipe: 900ms;
+  --ease: cubic-bezier(.76, 0, .2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body { background: var(--navy); -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
+html[data-u="ia"] body { background: var(--paper); }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* ── Univers (barre + page) ── */
+.world {
+  position: fixed; inset: 0;
+  height: 100vh; height: 100dvh;
+  overflow: hidden;
+  visibility: hidden;
+}
+.world-in {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+}
+.world.is-in, .world.is-in .world-in { will-change: transform; }
+.world.is-on { visibility: visible; z-index: 2; }
+.world.is-in { visibility: visible; z-index: 3; }
+.world[data-u="cinema"] { background: var(--navy); }
+.world[data-u="ia"] { background: var(--paper); }
+
+.stage { position: relative; flex: 1 1 auto; min-height: 0; }
+.stage iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: 0; display: block; background: transparent;
+}
+
+/* ── Barre ── */
+.bar {
+  position: relative; z-index: 2;
+  flex: 0 0 var(--bar-h); height: var(--bar-h);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+  padding: 0 40px;
+  padding-left: max(40px, env(safe-area-inset-left));
+  padding-right: max(40px, env(safe-area-inset-right));
+}
+.bar-id { justify-self: start; text-decoration: none; white-space: nowrap; }
+.bar-tag { justify-self: end; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+
+.switch { position: relative; display: flex; align-items: center; padding: 3px; gap: 2px; }
+.switch button {
+  position: relative; height: 28px; padding: 0 14px;
+  display: inline-flex; align-items: center; gap: 8px;
+  white-space: nowrap; line-height: 1;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.switch button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.switch button[aria-pressed="true"] { cursor: default; }
+.mk { width: 6px; height: 6px; flex: 0 0 6px; display: inline-block; }
+.mk-cinema { border-radius: 0; }
+.mk-ia { border-radius: 50%; }
+
+/* Barre — univers Cinéma */
+.world[data-u="cinema"] .bar {
+  background: var(--navy);
+  border-bottom: 1px solid rgba(96, 165, 250, .14);
+  color: var(--ice);
+}
+.world[data-u="cinema"] .bar-id {
+  font-family: 'PYK Barlow', 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  font-weight: 800; font-size: 15px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ice);
+}
+.world[data-u="cinema"] .bar-tag {
+  font-family: 'PYK Inter', Inter, system-ui, sans-serif; font-weight: 300;
+  font-size: 9px; letter-spacing: .32em; text-transform: uppercase;
+  color: rgba(191, 219, 254, .5);
+}
+.world[data-u="cinema"] .switch {
+  border: 1px solid rgba(96, 165, 250, .3); border-radius: 2px;
+  background: rgba(59, 130, 246, .06);
+}
+.world[data-u="cinema"] .switch button {
+  border-radius: 1px; border: 1px solid transparent;
+  font-family: 'PYK Barlow', 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  font-weight: 800; font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+}
+.world[data-u="cinema"] .switch [data-to="cinema"] { background: var(--ice); color: var(--navy); }
+.world[data-u="cinema"] .switch [data-to="cinema"] .mk { background: var(--navy); }
+.world[data-u="cinema"] .switch [data-to="ia"] { color: #FF8A3D; }
+.world[data-u="cinema"] .switch [data-to="ia"] .mk { background: var(--orange); }
+.world[data-u="cinema"] .switch [data-to="ia"]:hover { background: rgba(255, 107, 0, .1); border-color: rgba(255, 107, 0, .45); }
+
+/* Barre — univers IA */
+.world[data-u="ia"] .bar {
+  background: var(--paper);
+  border-bottom: 1px solid #E8E8E8;
+  color: var(--ink);
+}
+.world[data-u="ia"] .bar-id {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700; font-size: 15px; letter-spacing: -.01em;
+  color: var(--ink);
+}
+.world[data-u="ia"] .bar-tag {
+  font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400;
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: #888896;
+}
+.world[data-u="ia"] .switch {
+  border: 1.5px solid #E2E2E2; border-radius: 100px;
+  background: #fff; box-shadow: 0 1px 2px rgba(17, 17, 18, .04);
+}
+.world[data-u="ia"] .switch button {
+  border-radius: 100px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 600; font-size: 12.5px; letter-spacing: .02em;
+}
+.world[data-u="ia"] .switch [data-to="ia"] {
+  background: var(--grad); color: #fff;
+  box-shadow: 0 2px 12px rgba(232, 17, 26, .25);
+}
+.world[data-u="ia"] .switch [data-to="ia"] .mk { background: #fff; }
+.world[data-u="ia"] .switch [data-to="cinema"] { color: #1B2A44; }
+.world[data-u="ia"] .switch [data-to="cinema"] .mk { background: var(--navy); }
+.world[data-u="ia"] .switch [data-to="cinema"]:hover { background: var(--navy); color: var(--ice); }
+.world[data-u="ia"] .switch [data-to="cinema"]:hover .mk { background: var(--ice); }
+
+.switch button.is-going { transform: scale(.96); }
+
+/* ── Chargement ── */
+.loader {
+  position: absolute; inset: 0; z-index: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity .4s ease;
+}
+.world.is-ready .loader { opacity: 0; pointer-events: none; }
+.world.is-ready iframe { opacity: 1; }
+.stage iframe { z-index: 1; opacity: 0; transition: opacity .35s ease; }
+
+.ld-cinema { display: flex; gap: 4px; height: 22px; align-items: center; }
+.ld-cinema i { display: block; width: 3px; height: 22px; background: var(--ice); opacity: .5; animation: ldbar 1s ease-in-out infinite; }
+.ld-cinema i:nth-child(2) { animation-delay: .12s; }
+.ld-cinema i:nth-child(3) { animation-delay: .24s; }
+@keyframes ldbar { 0%, 100% { transform: scaleY(.3); opacity: .35; } 50% { transform: scaleY(1); opacity: 1; } }
+
+.ld-ia { width: 120px; height: 3px; border-radius: 3px; background: #EDEDED; overflow: hidden; }
+.ld-ia i { display: block; width: 40%; height: 100%; border-radius: 3px; background: var(--grad); animation: ldslide 1.1s var(--ease) infinite; }
+@keyframes ldslide { 0% { transform: translateX(-100%); } 100% { transform: translateX(260%); } }
+
+/* ── Bord du volet ── */
+.edge {
+  position: fixed; top: 0; bottom: 0; left: 0; width: 2px; margin-left: -1px;
+  z-index: 10; pointer-events: none; opacity: 0;
+}
+.edge.to-ia { background: linear-gradient(180deg, #E8111A, #FF6B00 55%, #FFB800); box-shadow: 0 0 18px 2px rgba(255, 107, 0, .55); }
+.edge.to-cinema { background: linear-gradient(180deg, #BFDBFE, #EBF0FA 50%, #60A5FA); box-shadow: 0 0 18px 2px rgba(96, 165, 250, .55); }
+
+/* ── Petits écrans ── */
+@media (max-width: 900px) {
+  .bar { padding: 0 20px; }
+  .bar-tag { display: none; }
+  .bar { grid-template-columns: 1fr auto; }
+}
+@media (max-width: 560px) {
+  .bar { grid-template-columns: 1fr; justify-items: center; padding: 0 12px; }
+  .bar-id { display: none; }
+  .switch button { height: 30px; padding: 0 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-cinema i, .ld-ia i { animation-duration: 2.4s; }
+}
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif; color: #EBF0FA; }
+</style>
+</head>
+<body>
+
+<section class="world" id="world-cinema" data-u="cinema" aria-label="Portfolio Cinéma">
+ <div class="world-in">
+  <header class="bar">
+    <a class="bar-id" href="#cinema" data-i18n="name">Pierre-Yves Kerjean</a>
+    <div class="switch" role="group" data-i18n-aria="switch" aria-label="Choisir un univers">
+      <button type="button" data-to="cinema" aria-pressed="true"><span class="mk mk-cinema" aria-hidden="true"></span><span data-i18n="cinema">Cinéma</span></button>
+      <button type="button" data-to="ia" aria-pressed="false"><span class="mk mk-ia" aria-hidden="true"></span><span data-i18n="ia">IA</span></button>
+    </div>
+    <div class="bar-tag" data-i18n="tagCinema">Montage · Étalonnage · Post-production</div>
+  </header>
+  <div class="stage">
+    <div class="loader" aria-hidden="true"><div class="ld-cinema"><i></i><i></i><i></i></div></div>
+    <iframe title="Portfolio Cinéma" data-src="cinema/index.html" allow="autoplay; fullscreen; encrypted-media; picture-in-picture; clipboard-write"></iframe>
+  </div>
+ </div>
+</section>
+
+<section class="world" id="world-ia" data-u="ia" aria-label="Portfolio IA">
+ <div class="world-in">
+  <header class="bar">
+    <a class="bar-id" href="#ia" data-i18n="name">Pierre-Yves Kerjean</a>
+    <div class="switch" role="group" data-i18n-aria="switch" aria-label="Choisir un univers">
+      <button type="button" data-to="cinema" aria-pressed="false"><span class="mk mk-cinema" aria-hidden="true"></span><span data-i18n="cinema">Cinéma</span></button>
+      <button type="button" data-to="ia" aria-pressed="true"><span class="mk mk-ia" aria-hidden="true"></span><span data-i18n="ia">IA</span></button>
+    </div>
+    <div class="bar-tag" data-i18n="tagIa">Image · Vidéo · Musique générative</div>
+  </header>
+  <div class="stage">
+    <div class="loader" aria-hidden="true"><div class="ld-ia"><i></i></div></div>
+    <iframe title="Portfolio IA" data-src="ia/index.html" allow="autoplay; fullscreen; encrypted-media; picture-in-picture; clipboard-write"></iframe>
+  </div>
+ </div>
+</section>
+
+<div class="edge" aria-hidden="true"></div>
+<p class="sr-only" aria-live="polite" id="announce"></p>
+
+<noscript>
+  <a href="cinema/index.html">Portfolio Cinéma →</a>
+  <a href="ia/index.html">Portfolio IA →</a>
+</noscript>
+
+<script>
+(function () {
+  var META = {
+    cinema: { title: 'Pierre-Yves Kerjean — Portfolio Cinéma', color: '#060C1A', icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23060C1A'/><g fill='%23EBF0FA'><rect x='8.0' y='2.45' width='3.1' height='12.5'/><path fill-rule='evenodd' d='M8.0 2.45 H12.40 A3.2 3.2 0 0 1 15.60 5.65 V6.65 A3.2 3.2 0 0 1 12.40 9.85 H8.0 Z M11.10 4.85 H12.20 A0.9 0.9 0 0 1 13.10 5.75 V6.55 A0.9 0.9 0 0 1 12.20 7.45 H11.10 Z'/><rect x='18.65' y='7.85' width='3.1' height='7.10'/></g><clipPath id='y'><rect x='16.40' y='2.45' width='7.6' height='12.5'/></clipPath><path clip-path='url(%23y)' fill='none' stroke='%23EBF0FA' stroke-linejoin='miter' stroke-miterlimit='10' stroke-width='2.9' d='M16.94 -0.55 L20.20 9.35 L23.46 -0.55'/><clipPath id='k'><rect x='8.0' y='17.55' width='16.0' height='12.0'/></clipPath><g clip-path='url(%23k)' fill='none' stroke='%23EBF0FA' stroke-linejoin='miter'><path d='M7.74 32.55 L16 20.65 L24.26 32.55' stroke-width='3.0'/><path d='M8.0 19.10 H24.0' stroke-width='3.1'/></g></svg>" },
+    ia:     { title: 'Pierre-Yves Kerjean — IA & Créativité',   color: '#FAFAFA', icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23FF6B00'/%3E%3Ctext x='32' y='33' font-family='Arial,Helvetica,sans-serif' font-size='28' font-weight='700' fill='%23fff' text-anchor='middle' dominant-baseline='central' letter-spacing='-1'%3EPY%3C/text%3E%3C/svg%3E" }
+  };
+  var TXT = {
+    fr: { name: 'Pierre-Yves Kerjean', cinema: 'Cinéma', ia: 'IA', switch: 'Choisir un univers',
+          tagCinema: 'Montage · Étalonnage · Post-production', tagIa: 'Image · Vidéo · Musique générative',
+          now: { cinema: 'Univers Cinéma affiché', ia: 'Univers IA affiché' } },
+    en: { name: 'Pierre-Yves Kerjean', cinema: 'Cinema', ia: 'AI', switch: 'Choose a side',
+          tagCinema: 'Editing · Color grading · Post-production', tagIa: 'Generative image · Video · Music',
+          now: { cinema: 'Cinema side shown', ia: 'AI side shown' } }
+  };
+
+  var root = document.documentElement;
+  var worlds = { cinema: document.getElementById('world-cinema'), ia: document.getElementById('world-ia') };
+  var frames = { cinema: worlds.cinema.querySelector('iframe'), ia: worlds.ia.querySelector('iframe') };
+  var edge = document.querySelector('.edge');
+  var announce = document.getElementById('announce');
+  var favicon = document.getElementById('favicon');
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var state = { u: null, lang: 'fr' };
+
+  /* ── Adresse : #cinema, #ia, #cinema/project/... ── */
+  function parseHash() {
+    var h = (location.hash || '').replace(/^#\/?/, '');
+    if (/^ia\b/i.test(h)) return { u: 'ia', route: '' };
+    var m = h.match(/^cinema(\/.*)?$/i);
+    return { u: 'cinema', route: m && m[1] ? m[1] : '' };
+  }
+
+  function load(u, route) {
+    var f = frames[u];
+    if (f.getAttribute('src')) return;
+    var src = f.getAttribute('data-src');
+    if (state.lang !== 'fr') src += '?lang=' + state.lang;
+    if (u === 'cinema' && route) src += '#' + route;
+    f.setAttribute('src', src);
+  }
+
+  function ready(u) { worlds[u].classList.add('is-ready'); }
+  frames.cinema.addEventListener('load', function () { ready('cinema'); });
+  frames.ia.addEventListener('load', function () { ready('ia'); });
+
+  function other(u) { return u === 'cinema' ? 'ia' : 'cinema'; }
+
+  function applyMeta(u) {
+    root.setAttribute('data-u', u);
+    document.title = META[u].title;
+    themeMeta.setAttribute('content', META[u].color);
+    favicon.setAttribute('href', META[u].icon);
+  }
+
+  function setInert(u, on) {
+    var w = worlds[u];
+    if (on) { w.setAttribute('inert', ''); w.setAttribute('aria-hidden', 'true'); }
+    else { w.removeAttribute('inert'); w.removeAttribute('aria-hidden'); }
+  }
+
+  function tell(u, msg) {
+    try { frames[u].contentWindow && frames[u].contentWindow.postMessage(Object.assign({ pyk: 1 }, msg), '*'); } catch (e) {}
+  }
+
+  var pending = null;
+  function settle() {
+    if (!pending) return;
+    var p = pending; pending = null;
+    p.anims.forEach(function (a) { a.onfinish = null; try { a.cancel(); } catch (e) {} });
+    p.done();
+  }
+
+  function switchTo(u, opts) {
+    opts = opts || {};
+    if (u !== 'cinema' && u !== 'ia') return;
+    if (u === state.u) return;
+    settle();
+
+    var from = state.u;
+    var to = u;
+    state.u = to;
+    load(to);
+
+    if (opts.push) {
+      try { history.pushState({ u: to }, '', '#' + to); } catch (e) { location.hash = to; }
+    }
+
+    applyMeta(to);
+    setInert(to, false);
+    announce.textContent = TXT[state.lang].now[to];
+
+    if (!from) {                       // premier affichage
+      worlds[to].classList.add('is-on');
+      setInert(other(to), true);
+      return;
+    }
+
+    tell(from, { type: 'hide' });
+    var incoming = worlds[to], outgoing = worlds[from];
+    incoming.classList.add('is-in');
+
+    function done() {
+      incoming.classList.remove('is-in');
+      incoming.classList.add('is-on');
+      outgoing.classList.remove('is-on');
+      setInert(from, true);
+    }
+
+    if (reduce || !incoming.animate) {
+      if (incoming.animate) {
+        var fade = incoming.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 260, easing: 'ease', fill: 'both' });
+        pending = { anims: [fade], done: done };
+        fade.onfinish = settle;
+      } else done();
+      return;
+    }
+
+    // Volet : l'IA arrive par la droite, le Cinéma par la gauche.
+    // Le cadre glisse et son contenu glisse en sens inverse : le contenu reste fixe,
+    // seule la fenêtre s'ouvre (tout en transform, donc fluide et synchronisé avec le liseré).
+    var W = window.innerWidth;
+    var toIa = to === 'ia';
+    var sx = toIa ? W : -W;
+    var timing = { duration: 900, easing: 'cubic-bezier(.76,0,.2,1)', fill: 'both' };
+    var inner = incoming.querySelector('.world-in');
+
+    edge.className = 'edge ' + (toIa ? 'to-ia' : 'to-cinema');
+    var eFrom = toIa ? W : 0, eTo = toIa ? 0 : W;
+    var a1 = incoming.animate([{ transform: 'translateX(' + sx + 'px)' }, { transform: 'translateX(0)' }], timing);
+    var a3 = inner.animate([{ transform: 'translateX(' + (-sx) + 'px)' }, { transform: 'translateX(0)' }], timing);
+    var a2 = edge.animate([
+      { transform: 'translateX(' + eFrom + 'px)', opacity: 1 },
+      { transform: 'translateX(' + (eFrom + (eTo - eFrom) * .9) + 'px)', opacity: 1, offset: .9 },
+      { transform: 'translateX(' + eTo + 'px)', opacity: 0 }
+    ], timing);
+    pending = { anims: [a1, a2, a3], done: done };
+    a1.onfinish = settle;
+  }
+
+  /* ── Langue ── */
+  function applyLang(l) {
+    if (l !== 'fr' && l !== 'en') return;
+    state.lang = l;
+    root.setAttribute('lang', l);
+    var t = TXT[l];
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n'); if (t[k]) el.textContent = t[k];
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      el.setAttribute('aria-label', t[el.getAttribute('data-i18n-aria')]);
+    });
+  }
+
+  /* ── Boutons ── */
+  document.querySelectorAll('.switch button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var to = b.getAttribute('data-to');
+      if (to === state.u) return;
+      b.classList.add('is-going');
+      setTimeout(function () { b.classList.remove('is-going'); }, 220);
+      switchTo(to, { push: true });
+      // Le focus suit dans la barre du nouvel univers (navigation clavier)
+      var next = worlds[to].querySelector('.switch [data-to="' + to + '"]');
+      if (next) { try { next.focus({ preventScroll: true }); } catch (e) {} }
+    });
+    // Préchargement dès l'intention
+    ['pointerenter', 'focus', 'touchstart'].forEach(function (ev) {
+      b.addEventListener(ev, function () { load(b.getAttribute('data-to')); }, { passive: true });
+    });
+  });
+  document.querySelectorAll('.bar-id').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      tell(a.closest('.world').getAttribute('data-u'), { type: 'top' });
+    });
+  });
+
+  /* ── Messages des deux portfolios ── */
+  window.addEventListener('message', function (e) {
+    var d = e.data;
+    if (!d || d.pyk !== 1) return;
+    var src = e.source === frames.cinema.contentWindow ? 'cinema' : (e.source === frames.ia.contentWindow ? 'ia' : null);
+    if (!src) return;
+
+    if (d.type === 'ready') {
+      ready(src);
+      if (d.lang !== state.lang) tell(src, { type: 'lang', lang: state.lang });
+    }
+    if (d.type === 'switch' && src === state.u) switchTo(d.to, { push: true });
+    if (d.type === 'lang' && src === state.u && d.lang !== state.lang) {
+      applyLang(d.lang);
+      tell(other(src), { type: 'lang', lang: d.lang });
+    }
+    if (d.type === 'route' && src === 'cinema' && state.u === 'cinema') {
+      var r = (d.hash || '').replace(/^#/, '');
+      var h = '#cinema' + (r && r !== '/' && r.charAt(0) === '/' ? r : '');
+      if (location.hash !== h) { try { history.replaceState(history.state, '', h); } catch (err) {} }
+    }
+  });
+
+  window.addEventListener('popstate', function () { switchTo(parseHash().u); });
+  window.addEventListener('hashchange', function () { switchTo(parseHash().u); });
+
+  /* ── Démarrage ── */
+  var start = parseHash();
+  load(start.u, start.route);
+  switchTo(start.u);
+
+  // L'autre univers se charge en arrière-plan une fois le premier prêt
+  var preloaded = false;
+  function preloadOther() { if (preloaded) return; preloaded = true; load(other(start.u)); }
+  frames[start.u].addEventListener('load', function () { setTimeout(preloadOther, 1200); });
+  setTimeout(preloadOther, 6000);
+  setTimeout(function () { ready(start.u); }, 10000);
+})();
+</script>
+</body>
+</html>
