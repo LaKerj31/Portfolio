@@ -17,8 +17,6 @@
 /* Polices de la page d'accueil (auto-hébergées, licence OFL) */
 @font-face { font-family: 'Unbounded'; font-weight: 900; font-style: normal; font-display: swap; src: url(assets/fonts/unbounded-latin-900-normal.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: 'Unbounded'; font-weight: 900; font-style: normal; font-display: swap; src: url(assets/fonts/unbounded-latin-ext-900-normal.woff2) format('woff2'); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: 'Instrument Serif'; font-weight: 400; font-style: italic; font-display: swap; src: url(assets/fonts/instrument-serif-latin-400-italic.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: 'Instrument Serif'; font-weight: 400; font-style: italic; font-display: swap; src: url(assets/fonts/instrument-serif-latin-ext-400-italic.woff2) format('woff2'); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 @font-face { font-family: 'DM Mono'; font-weight: 400; font-style: normal; font-display: swap; src: url(assets/fonts/dm-mono-latin-400-normal.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: 'DM Mono'; font-weight: 400; font-style: normal; font-display: swap; src: url(assets/fonts/dm-mono-latin-ext-400-normal.woff2) format('woff2'); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 @font-face { font-family: 'DM Mono'; font-weight: 500; font-style: normal; font-display: swap; src: url(assets/fonts/dm-mono-latin-500-normal.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
@@ -272,12 +270,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .home .w { color: transparent; -webkit-text-stroke: 1.5px rgba(242, 242, 240, .55); }
 .home .w-fill {
   position: absolute; inset: 0; pointer-events: none;
-  clip-path: inset(0 100% 0 0);
+  clip-path: inset(-40% 100% -30% -10%);   /* marges négatives : les accents et débords sont remplis aussi */
   transition: clip-path .7s cubic-bezier(.76, 0, .2, 1);
 }
 .home .word.cinema .w-fill { color: var(--ice); }
 .home .word.ia .w-fill { color: transparent; background: var(--grad); -webkit-background-clip: text; background-clip: text; }
-.home .word.hot .w-fill, .home .word:focus-visible .w-fill { clip-path: inset(0 0 0 0); }
+.home .word.hot .w-fill, .home .word:focus-visible .w-fill { clip-path: inset(-40% -10% -30% -10%); }
 .home .meta {
   display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
   font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--h-mute);
@@ -296,10 +294,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   padding-bottom: max(28px, env(safe-area-inset-bottom));
   font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--h-mute); line-height: 1.8;
 }
-.home .tag {
-  font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 22px;
-  letter-spacing: 0; text-transform: none; color: var(--h-fg); max-width: 44ch; line-height: 1.25;
-}
+.home .tag { color: var(--h-fg); font-weight: 500; line-height: 1.8; }
 .home .h-foot .place { text-align: right; }
 
 /* Entrée en scène */
@@ -323,7 +318,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .home .w, .home .w-fill { font-size: 16.5vw; -webkit-text-stroke-width: 1px; }
   .home .meta { align-items: flex-start; white-space: normal; }
   .home .h-foot { flex-direction: column; align-items: flex-start; gap: 14px; padding: 0 22px 24px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
-  .home .tag { font-size: 19px; }
   .home .h-foot .place { text-align: left; }
 }
 @media (min-width: 761px) and (max-width: 1100px) {
@@ -332,7 +326,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 @media (max-height: 560px) and (min-width: 761px) {
   .home .w, .home .w-fill { font-size: clamp(48px, 15vh, 120px); }
-  .home .tag { font-size: 17px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .home .h-top, .home .word, .home .h-foot { animation: none !important; opacity: 1; transform: none; }
@@ -390,8 +383,8 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
       </a>
     </main>
     <footer class="h-foot">
-      <p class="tag" data-i18n="tagline">Étudiant en post-production à CinéCréatis Nantes, entre la salle de montage et les outils génératifs.</p>
-      <div class="place"><span data-i18n="place">Nantes · Paris</span><br><span data-i18n="year">Portfolio — 2026</span></div>
+      <p class="tag" data-i18n="tagline">Spécialisé en post-production &amp; IA générative</p>
+      <div class="place"><span data-i18n="year">Portfolio — 2026</span></div>
     </footer>
   </div>
  </div>
@@ -456,8 +449,7 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
       tagCinema: 'Montage · Étalonnage · Post-production',
       tagIa: 'Image · Vidéo · Musique générative',
       enter: 'Entrer',
-      tagline: 'Étudiant en post-production à CinéCréatis Nantes, entre la salle de montage et les outils génératifs.',
-      place: 'Nantes · Paris',
+      tagline: 'Spécialisé en post-production & IA générative',
       year: 'Portfolio — 2026',
       switch: 'Choisir un univers', home: 'Retour à l\'accueil',
       now: { home: 'Accueil affiché', cinema: 'Univers Cinéma affiché', ia: 'Univers IA affiché' }
@@ -469,8 +461,7 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
       tagCinema: 'Editing · Color grading · Post-production',
       tagIa: 'Generative image · Video · Music',
       enter: 'Enter',
-      tagline: 'Post-production student at CinéCréatis Nantes, between the edit suite and generative tools.',
-      place: 'Nantes · Paris',
+      tagline: 'Specialised in post-production & generative AI',
       year: 'Portfolio — 2026',
       switch: 'Choose a side', home: 'Back to home',
       now: { home: 'Home shown', cinema: 'Cinema side shown', ia: 'AI side shown' }
