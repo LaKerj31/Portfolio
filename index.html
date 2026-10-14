@@ -269,13 +269,15 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .home .w { color: transparent; -webkit-text-stroke: 1.5px rgba(242, 242, 240, .55); }
 .home .w-fill {
-  position: absolute; inset: 0; pointer-events: none;
-  clip-path: inset(-40% 100% -30% -10%);   /* marges négatives : les accents et débords sont remplis aussi */
+  /* La boîte de remplissage déborde du mot (accents, pieds du A…) ; le padding recale le texte sur le trait.
+     Nécessaire pour l'IA : un dégradé en background-clip:text ne se dessine que dans la boîte. */
+  position: absolute; inset: -.3em -.2em -.25em -.15em; padding: .3em .2em .25em .15em; pointer-events: none;
+  clip-path: inset(0 100% 0 0);
   transition: clip-path .7s cubic-bezier(.76, 0, .2, 1);
 }
 .home .word.cinema .w-fill { color: var(--ice); }
 .home .word.ia .w-fill { color: transparent; background: var(--grad); -webkit-background-clip: text; background-clip: text; }
-.home .word.hot .w-fill, .home .word:focus-visible .w-fill { clip-path: inset(-40% -10% -30% -10%); }
+.home .word.hot .w-fill, .home .word:focus-visible .w-fill { clip-path: inset(0 0 0 0); }
 .home .meta {
   display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
   font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--h-mute);
