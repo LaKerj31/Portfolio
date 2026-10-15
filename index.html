@@ -238,7 +238,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .home .h-lang { display: flex; gap: 2px; justify-self: end; }
 .home .h-name {
   justify-self: center; white-space: nowrap;
-  font-size: clamp(14px, 1.6vw, 24px); font-weight: 500; letter-spacing: .3em; text-indent: .3em;
+  font-size: clamp(18px, 2.3vw, 34px); font-weight: 500; letter-spacing: .3em; text-indent: .3em;
   text-transform: uppercase; color: var(--h-fg);
 }
 .home .h-lang button {
@@ -254,7 +254,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   position: relative; display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
   text-decoration: none; color: inherit;
   border-top: 1px solid var(--h-line);
-  padding: 30px 0 12px;
+  padding: 42px 0 18px;
   -webkit-user-select: none; user-select: none;
 }
 .home .word:last-child { border-bottom: 1px solid var(--h-line); }
@@ -268,7 +268,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .home .wrap { position: relative; display: inline-block; max-width: 100%; }
 .home .w, .home .w-fill {
   font-family: 'Unbounded', 'Arial Black', Impact, sans-serif;
-  font-weight: 900; font-size: clamp(64px, 13.5vw, 214px);
+  font-weight: 900; font-size: clamp(72px, 15vw, 250px);
   line-height: .9; letter-spacing: -.04em; text-transform: uppercase;
   display: block; white-space: nowrap;
 }
@@ -319,16 +319,16 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 @media (max-width: 760px) {
   .home .h-top { padding: 20px 22px 0; padding-left: max(22px, env(safe-area-inset-left)); padding-right: max(22px, env(safe-area-inset-right)); }
-  .home .h-name { letter-spacing: .22em; text-indent: .22em; }
+  .home .h-name { font-size: 15px; letter-spacing: .2em; text-indent: .2em; }
   .home .stack { padding: 0 22px; }
   .home .word { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 0 16px; }
-  .home .w, .home .w-fill { font-size: 16.5vw; -webkit-text-stroke-width: 1px; }
+  .home .w, .home .w-fill { font-size: 17.5vw; -webkit-text-stroke-width: 1px; }
   .home .meta { align-items: flex-start; white-space: normal; }
   .home .h-foot { padding: 0 22px 24px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
   .home .tag { font-size: 11px; letter-spacing: .18em; }
 }
 @media (min-width: 761px) and (max-width: 1100px) {
-  .home .w, .home .w-fill { font-size: clamp(56px, 11vw, 160px); }
+  .home .w, .home .w-fill { font-size: clamp(60px, 12.5vw, 180px); }
   .home .meta { font-size: 10px; letter-spacing: .14em; max-width: 36%; }
 }
 @media (max-height: 560px) and (min-width: 761px) {
@@ -496,7 +496,7 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
   }
 
   // VER change à chaque publication : les navigateurs rechargent les deux portfolios au lieu de servir une copie en cache
-  var VER = '202610151757';
+  var VER = '202610151815';
   function load(u, route) {
     var f = frames[u];
     if (!f || f.getAttribute('src')) return;
