@@ -229,13 +229,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .home .h-top, .home .h-foot, .home .stack { position: relative; z-index: 1; }
 .home .h-top {
-  display: flex; justify-content: flex-end; align-items: baseline;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
   padding: 26px 40px 0;
   padding-left: max(40px, env(safe-area-inset-left)); padding-right: max(40px, env(safe-area-inset-right));
   font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--h-mute);
 }
 .home .h-top b { color: var(--h-fg); font-weight: 500; }
-.home .h-lang { display: flex; gap: 2px; }
+.home .h-lang { display: flex; gap: 2px; justify-self: end; }
+.home .h-logo { display: block; height: 48px; width: auto; justify-self: center; }
 .home .h-lang button {
   font: inherit; font-weight: 500; letter-spacing: inherit; text-transform: inherit; color: var(--h-fg);
   padding: 4px 7px; border-radius: 3px; opacity: .55; transition: opacity .2s, background-color .2s;
@@ -321,6 +322,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 @media (max-width: 760px) {
   .home .h-top { padding: 20px 22px 0; padding-left: max(22px, env(safe-area-inset-left)); padding-right: max(22px, env(safe-area-inset-right)); }
+  .home .h-logo { height: 34px; }
   .home .stack { padding: 0 22px; }
   .home .word { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 0 16px; }
   .home .word.cinema { padding-bottom: 24px; }
@@ -375,6 +377,8 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
   <div class="home" id="home">
     <div class="light" aria-hidden="true"></div>
     <header class="h-top">
+      <div></div>
+      <img class="h-logo" src="assets/img/flying-pearl-studio.png" alt="Flying Pearl Studio" width="1441" height="280" decoding="async">
       <div class="h-lang" role="group" aria-label="Langue">
         <button type="button" data-lang="fr" aria-pressed="true" lang="fr">FR</button>
         <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
