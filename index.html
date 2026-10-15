@@ -236,7 +236,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .home .h-top b { color: var(--h-fg); font-weight: 500; }
 .home .h-lang { display: flex; gap: 2px; justify-self: end; }
-.home .h-logo { display: block; height: 55px; width: auto; justify-self: center; }
+.home .h-name {
+  justify-self: center; white-space: nowrap;
+  font-size: clamp(14px, 1.6vw, 24px); font-weight: 500; letter-spacing: .3em; text-indent: .3em;
+  text-transform: uppercase; color: var(--h-fg);
+}
 .home .h-lang button {
   font: inherit; font-weight: 500; letter-spacing: inherit; text-transform: inherit; color: var(--h-fg);
   padding: 4px 7px; border-radius: 3px; opacity: .55; transition: opacity .2s, background-color .2s;
@@ -261,13 +265,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-size: 10px; letter-spacing: .3em; color: var(--h-mute);
   background: var(--h-bg); padding-right: 12px;
 }
-.home .mid {
-  position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%);
-  font-size: clamp(14px, 1.6vw, 24px); font-weight: 500; letter-spacing: .3em; text-indent: .3em; text-transform: uppercase; color: var(--h-fg);
-  background: var(--h-bg); padding: 0 22px; white-space: nowrap; line-height: 1.3;
-}
-.home .word.cinema { padding-bottom: 34px; }
-.home .word.ia { padding-top: 54px; }
 .home .wrap { position: relative; display: inline-block; max-width: 100%; }
 .home .w, .home .w-fill {
   font-family: 'Unbounded', 'Arial Black', Impact, sans-serif;
@@ -322,12 +319,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 @media (max-width: 760px) {
   .home .h-top { padding: 20px 22px 0; padding-left: max(22px, env(safe-area-inset-left)); padding-right: max(22px, env(safe-area-inset-right)); }
-  .home .h-logo { height: 39px; }
+  .home .h-name { letter-spacing: .22em; text-indent: .22em; }
   .home .stack { padding: 0 22px; }
   .home .word { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 0 16px; }
-  .home .word.cinema { padding-bottom: 24px; }
-  .home .word.ia { padding-top: 36px; }
-  .home .mid { padding: 0 12px; letter-spacing: .22em; text-indent: .22em; }
   .home .w, .home .w-fill { font-size: 16.5vw; -webkit-text-stroke-width: 1px; }
   .home .meta { align-items: flex-start; white-space: normal; }
   .home .h-foot { padding: 0 22px 24px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
@@ -378,7 +372,7 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
     <div class="light" aria-hidden="true"></div>
     <header class="h-top">
       <div></div>
-      <img class="h-logo" src="assets/img/flying-pearl-studio.png" alt="Flying Pearl Studio" width="1441" height="280" decoding="async">
+      <div class="h-name"><span data-i18n="name">Pierre-Yves Kerjean</span></div>
       <div class="h-lang" role="group" aria-label="Langue">
         <button type="button" data-lang="fr" aria-pressed="true" lang="fr">FR</button>
         <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
@@ -392,7 +386,6 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
       </a>
       <a class="word ia" href="#ia" data-to="ia">
         <span class="idx" aria-hidden="true">02</span>
-        <span class="mid"><span data-i18n="name">Pierre-Yves Kerjean</span></span>
         <span class="wrap"><span class="w" data-i18n="iaWord">IA</span><span class="w-fill" aria-hidden="true" data-i18n="iaWord">IA</span></span>
         <span class="meta"><span data-i18n="tagIa">Image · Vidéo · Musique générative</span><span class="go"><span data-i18n="enter">Entrer</span> <i></i></span></span>
       </a>
@@ -503,7 +496,7 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
   }
 
   // VER change à chaque publication : les navigateurs rechargent les deux portfolios au lieu de servir une copie en cache
-  var VER = '202610151054';
+  var VER = '202610151757';
   function load(u, route) {
     var f = frames[u];
     if (!f || f.getAttribute('src')) return;
