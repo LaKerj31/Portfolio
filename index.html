@@ -236,7 +236,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .home .h-top b { color: var(--h-fg); font-weight: 500; }
 .home .h-lang { display: flex; gap: 2px; justify-self: end; }
-.home .h-logo { display: block; height: 48px; width: auto; justify-self: center; }
+.home .h-logo { display: block; height: 55px; width: auto; justify-self: center; }
 .home .h-lang button {
   font: inherit; font-weight: 500; letter-spacing: inherit; text-transform: inherit; color: var(--h-fg);
   padding: 4px 7px; border-radius: 3px; opacity: .55; transition: opacity .2s, background-color .2s;
@@ -322,7 +322,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 @media (max-width: 760px) {
   .home .h-top { padding: 20px 22px 0; padding-left: max(22px, env(safe-area-inset-left)); padding-right: max(22px, env(safe-area-inset-right)); }
-  .home .h-logo { height: 34px; }
+  .home .h-logo { height: 39px; }
   .home .stack { padding: 0 22px; }
   .home .word { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 0 16px; }
   .home .word.cinema { padding-bottom: 24px; }
@@ -502,11 +502,13 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
     return { u: 'home', route: '' };
   }
 
+  // VER change à chaque publication : les navigateurs rechargent les deux portfolios au lieu de servir une copie en cache
+  var VER = '202610151054';
   function load(u, route) {
     var f = frames[u];
     if (!f || f.getAttribute('src')) return;
-    var src = f.getAttribute('data-src');
-    if (state.lang !== 'fr') src += '?lang=' + state.lang;
+    var src = f.getAttribute('data-src') + '?v=' + VER;
+    if (state.lang !== 'fr') src += '&lang=' + state.lang;
     if (u === 'cinema' && route) src += '#' + route;
     f.setAttribute('src', src);
   }
