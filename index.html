@@ -319,7 +319,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 @media (max-width: 760px) {
   .home .h-top { padding: 20px 22px 0; padding-left: max(22px, env(safe-area-inset-left)); padding-right: max(22px, env(safe-area-inset-right)); }
-  .home .h-name { font-size: 15px; letter-spacing: .2em; text-indent: .2em; }
+  /* Téléphone : FR/EN sur une ligne à droite, le nom centré en dessous */
+  .home .h-top { grid-template-columns: 1fr; row-gap: 8px; }
+  .home .h-top > div:first-child { display: none; }
+  .home .h-lang { order: -1; }
+  .home .h-name { font-size: 16px; letter-spacing: .22em; text-indent: .22em; }
   .home .stack { padding: 0 22px; }
   .home .word { flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 0 16px; }
   .home .w, .home .w-fill { font-size: 17.5vw; -webkit-text-stroke-width: 1px; }
@@ -496,7 +500,7 @@ noscript a { display: block; padding: 24px; font: 16px/1.4 system-ui, sans-serif
   }
 
   // VER change à chaque publication : les navigateurs rechargent les deux portfolios au lieu de servir une copie en cache
-  var VER = '202610151815';
+  var VER = '202610250150';
   function load(u, route) {
     var f = frames[u];
     if (!f || f.getAttribute('src')) return;
